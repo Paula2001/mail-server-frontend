@@ -7,6 +7,6 @@ describe('App', () => {
   it('mounts renders properly', () => {
     const wrapper = mount(App)
     let text = wrapper.text();
-    expect(text).toBe("Hello Vuetify");
+    expect(text).toBe("Create your own domain or insert your domain DomainDomain Continue");
   })
 })
