@@ -1,29 +1,33 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-
+import AppBar from "@/components/Menu.vue"
 const domain = ref('')
+const drawer = ref(false)
 </script>
 
 <template>
   <v-app>
-    <v-main class="d-flex align-center justify-center" style="min-height: 50vh;">
-      <v-card width="700" class="p-8 text-center">
-        <h2 class="text-h4 mb-2">Create your own domain</h2>
-        <p class="text-medium-emphasis mb-6">
-          or insert your domain
-        </p>
+     <AppBar>
+      <template #title>
+        My Application
+      </template>
 
-        <v-text-field
-          v-model="domain"
-          label="Domain"
-          variant="outlined"
-          hide-details
-        />
+      <template #menu>
+        <v-list-item title="Home" />
+        <v-list-item title="Profile" />
+        <v-list-item title="Settings" />
+        <v-list-item title="Logout" />
+      </template>
 
-        <v-btn color="primary" size="large" class="mt-4">
-          Continue
-        </v-btn>
-      </v-card>
+      <template #actions>
+        <v-btn icon="mdi-heart" />
+        <v-btn icon="mdi-magnify" />
+        <v-btn icon="mdi-dots-vertical" />
+      </template>
+    </AppBar>
+    <v-spacer />
+    <v-main class="m-10">
+      <router-view />
     </v-main>
   </v-app>
 </template>
